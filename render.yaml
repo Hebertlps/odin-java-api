@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: odin-java-api
+    env: java
+    plan: free
+    buildCommand: cd odin-api && ./gradlew clean build -x test
+    startCommand: java -Dserver.port=$PORT -jar odin-api/build/libs/odin-api-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_HOST
+        value: oracle.fiap.com.br
+      - key: DB_PORT
+        value: 1521
+      - key: DB_SID
+        value: ORCL
+      - key: DB_USER
+        value: rm562380
+      - key: DB_PASS
+        sync: false
