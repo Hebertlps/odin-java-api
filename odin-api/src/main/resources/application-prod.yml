@@ -2,26 +2,27 @@ spring:
   application:
     name: odin-api
   datasource:
-    url: jdbc:oracle:thin:@${DB_HOST}:${DB_PORT}:${DB_NAME}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
-    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:h2:mem:odin;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
+      minimum-idle: 1
+      auto-commit: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
         use_sql_comments: true
-        connection:
-          provider_disables_autocommit: true
+        dialect: org.hibernate.dialect.H2Dialect
     show-sql: false
-  datasource:
-    hikari:
-      connection-timeout: 5000
-      maximum-pool-size: 1
-      minimum-idle: 0
-      auto-commit: false
+  h2:
+    console:
+      enabled: false
   servlet:
     multipart:
       max-file-size: 10MB
@@ -36,10 +37,24 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
   api-docs:
     path: /api-docs
+  show-actuator: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
 
 logging:
   level:
     root: INFO
     com.fiap.odin: DEBUG
+    org.springframework.web: INFO
+    org.hibernate: WARN
