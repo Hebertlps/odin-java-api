@@ -39,9 +39,15 @@ springdoc:
     enabled: true
     operations-sorter: method
     tags-sorter: alpha
+    use-root-path: true
   api-docs:
     path: /api-docs
+    enabled: true
   show-actuator: true
+  model-and-view-allowed: true
+  enable-spring-security: false
+  swagger-ui-enabled: true
+  api-docs-enabled: true
 
 management:
   endpoints:
