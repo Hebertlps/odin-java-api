@@ -1,0 +1,9 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE"
+  },
+  "deploy": {
+    "startCommand": "java -Dserver.port=$PORT $JAVA_OPTS -jar odin-api/build/libs/odin-api-0.0.1-SNAPSHOT.jar"
+  }
+}
