@@ -35,6 +35,7 @@ Fornecer uma plataforma robusta e escalável para gerenciamento de satélites, o
 - **Swagger/OpenAPI:** [https://odin-java-api.onrender.com/swagger-ui/index.html](https://odin-java-api.onrender.com/swagger-ui/index.html)
 - **API Docs JSON:** [https://odin-java-api.onrender.com/api-docs](https://odin-java-api.onrender.com/api-docs)
 - **Health Check:** [https://odin-java-api.onrender.com/actuator/health](https://odin-java-api.onrender.com/actuator/health)
+- **API REST (Exemplo):** [https://odin-java-api.onrender.com/api/satelites](https://odin-java-api.onrender.com/api/satelites)
 
 ### 📹 Vídeos de Apresentação
 
