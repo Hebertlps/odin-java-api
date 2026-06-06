@@ -32,7 +32,7 @@ Fornecer uma plataforma robusta e escalável para gerenciamento de satélites, o
 
 **Link de Acesso da API:** [https://odin-java-api.onrender.com](https://odin-java-api.onrender.com)
 
-- **Swagger/OpenAPI:** [https://odin-java-api.onrender.com/swagger-ui.html](https://odin-java-api.onrender.com/swagger-ui.html)
+- **Swagger/OpenAPI:** [https://odin-java-api.onrender.com/swagger-ui/index.html](https://odin-java-api.onrender.com/swagger-ui/index.html)
 - **API Docs JSON:** [https://odin-java-api.onrender.com/api-docs](https://odin-java-api.onrender.com/api-docs)
 - **Health Check:** [https://odin-java-api.onrender.com/actuator/health](https://odin-java-api.onrender.com/actuator/health)
 
@@ -51,7 +51,7 @@ Fornecer uma plataforma robusta e escalável para gerenciamento de satélites, o
 
 ### Backend
 - **Java 17+** - Linguagem de programação
-- **Spring Boot 3.5.0** - Framework web
+- **Spring Boot 3.3.5** - Framework web
 - **Spring Data JPA** - Persistência de dados
 - **Spring Validation** - Validação de dados
 - **Lombok** - Redução de boilerplate
@@ -61,7 +61,7 @@ Fornecer uma plataforma robusta e escalável para gerenciamento de satélites, o
 - **Oracle Database** - Banco de dados relacional (FIAP)
 
 ### Documentação
-- **Springdoc OpenAPI 2.5.0** - Documentação automática
+- **Springdoc OpenAPI 2.3.0** - Documentação automática
 - **Swagger UI** - Interface de teste
 
 ### Build
@@ -160,7 +160,7 @@ Notificações de eventos críticos relacionados a satélites e detritos.
 
 4. **Acesse o Swagger:**
    ```
-   http://localhost:8080/swagger-ui.html
+   http://localhost:8080/swagger-ui/index.html
    ```
 
 ---
