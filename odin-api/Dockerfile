@@ -13,4 +13,4 @@ ENV DB_PORT=${DB_PORT:-1521}
 ENV DB_NAME=${DB_NAME:-ODIN}
 ENV DB_USER=${DB_USER:-odin}
 ENV DB_PASSWORD=${DB_PASSWORD:-odin123}
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
