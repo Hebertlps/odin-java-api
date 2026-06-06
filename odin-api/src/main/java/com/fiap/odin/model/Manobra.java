@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entidade que representa uma manobra realizada em um satélite.
+ * Utiliza chave composta (@EmbeddedId) para identificação única.
+ */
 @Entity
 @Table(name = "T_GS_MANOBRAS")
 @Data
@@ -14,21 +18,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Manobra {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_MANOBRA")
-    private Long id;
+    @EmbeddedId
+    private ManobraId id;
 
     @ManyToOne
-    @JoinColumn(name = "ID_SATELITE", nullable = false)
+    @JoinColumn(name = "ID_SATELITE", nullable = false, insertable = false, updatable = false)
     private Satelite satelite;
 
     @ManyToOne
-    @JoinColumn(name = "ID_OPERADOR", nullable = false)
+    @JoinColumn(name = "ID_OPERADOR", nullable = false, insertable = false, updatable = false)
     private Operador operador;
-
-    @Column(name = "DT_MANOBRA", nullable = false)
-    private LocalDateTime dataManobra = LocalDateTime.now();
 
     @Column(name = "TP_MANOBRA", nullable = false, length = 50)
     private String tipoManobra;

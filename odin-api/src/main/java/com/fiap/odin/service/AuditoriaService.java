@@ -49,7 +49,8 @@ public class AuditoriaService {
 
     private void updateEntityFromDto(Auditoria auditoria, AuditoriaDTO dto) {
         auditoria.setOperador(operadorService.findById(dto.operadorId()));
-        auditoria.setTipoAcao(dto.tipoAcao());
+        auditoria.setTipoOperacao(dto.tipoAcao());
         auditoria.setDetalhes(dto.detalhes());
+        auditoria.setNomeUsuario(dto.nomeUsuario() != null ? dto.nomeUsuario() : "SISTEMA");
     }
 }

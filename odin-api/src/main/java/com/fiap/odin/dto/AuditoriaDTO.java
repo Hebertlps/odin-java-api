@@ -10,5 +10,7 @@ public record AuditoriaDTO(
     @NotBlank(message = "Tipo de ação é obrigatório")
     String tipoAcao,
     
-    String detalhes
+    String detalhes,
+    
+    String nomeUsuario
 ) {}

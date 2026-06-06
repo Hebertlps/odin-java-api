@@ -1,34 +1,27 @@
 package com.fiap.odin.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
-import java.time.LocalDateTime;
-
+/**
+ * Entidade que representa um registro de auditoria geral do sistema.
+ * Herda de AuditoriaBase utilizando herança de entidades (SINGLE_TABLE strategy).
+ */
 @Entity
-@Table(name = "T_GS_AUDITORIA")
+@DiscriminatorValue("GERAL")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Auditoria {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_AUDITORIA")
-    private Long id;
+public class Auditoria extends AuditoriaBase {
 
     @ManyToOne
     @JoinColumn(name = "ID_OPERADOR")
     private Operador operador;
-
-    @Column(name = "DT_ACAO", nullable = false)
-    private LocalDateTime dataAcao = LocalDateTime.now();
-
-    @Column(name = "TP_ACAO", nullable = false, length = 50)
-    private String tipoAcao;
-
-    @Column(name = "DS_DETALHES", length = 1000)
-    private String detalhes;
 }
