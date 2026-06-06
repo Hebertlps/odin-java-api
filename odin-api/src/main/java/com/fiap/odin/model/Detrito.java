@@ -36,7 +36,7 @@ public class Detrito {
     @Embedded
     private CoordenadaOrbital coordenada;
 
-    @Column(name = "VL_TAMANHO_ESTIMADO", nullable = false, precision = 5, scale = 2)
+    @Column(name = "VL_TAMANHO_ESTIMADO", nullable = false)
     private Double tamanhoEstimado;
 
     @Column(name = "DT_CATALOGACAO", nullable = false)
@@ -46,10 +46,10 @@ public class Detrito {
     @Column(name = "RISCO_COLISAO", table = "T_GS_DETRITOS_ANALISE", length = 50)
     private String riscoColisao;
 
-    @Column(name = "VELOCIDADE_RELATIVA", table = "T_GS_DETRITOS_ANALISE", precision = 10, scale = 2)
+    @Column(name = "VELOCIDADE_RELATIVA", table = "T_GS_DETRITOS_ANALISE")
     private Double velocidadeRelativa;
 
-    @Column(name = "PROXIMIDADE_SATELITES", table = "T_GS_DETRITOS_ANALISE", precision = 15, scale = 2)
+    @Column(name = "PROXIMIDADE_SATELITES", table = "T_GS_DETRITOS_ANALISE")
     private Double proximidadeSatelites;
 
     @Column(name = "DT_ULTIMA_ANALISE", table = "T_GS_DETRITOS_ANALISE")

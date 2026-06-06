@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CoordenadaOrbital {
 
-    @Column(name = "VL_LATITUDE", nullable = false, precision = 9, scale = 6)
+    @Column(name = "VL_LATITUDE", nullable = false)
     private Double latitude;
 
-    @Column(name = "VL_LONGITUDE", nullable = false, precision = 9, scale = 6)
+    @Column(name = "VL_LONGITUDE", nullable = false)
     private Double longitude;
 
-    @Column(name = "VL_ALTITUDE", nullable = false, precision = 10, scale = 2)
+    @Column(name = "VL_ALTITUDE", nullable = false)
     private Double altitude;
 
-    @Column(name = "VL_VELOCIDADE", nullable = false, precision = 10, scale = 2)
+    @Column(name = "VL_VELOCIDADE", nullable = false)
     private Double velocidade;
 }

@@ -22,7 +22,7 @@ public class Satelite {
     @Column(name = "NM_SATELITE", nullable = false, unique = true, length = 100)
     private String nome;
 
-    @Column(name = "VL_COMBUSTIVEL_ATUAL", nullable = false, precision = 5, scale = 2)
+    @Column(name = "VL_COMBUSTIVEL_ATUAL", nullable = false)
     private Double combustivelAtual;
 
     @Column(name = "ST_OPERACIONAL", nullable = false, length = 50)

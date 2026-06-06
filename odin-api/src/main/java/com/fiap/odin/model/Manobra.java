@@ -32,7 +32,7 @@ public class Manobra {
     @Column(name = "TP_MANOBRA", nullable = false, length = 50)
     private String tipoManobra;
 
-    @Column(name = "VL_COMBUSTIVEL_CONSUMIDO", nullable = false, precision = 5, scale = 2)
+    @Column(name = "VL_COMBUSTIVEL_CONSUMIDO", nullable = false)
     private Double combustivelConsumido;
 
     @Column(name = "ST_RESULTADO", nullable = false, length = 50)
