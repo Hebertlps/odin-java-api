@@ -2,15 +2,19 @@ package com.fiap.odin.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
+/**
+ * DTO para criacao e atualizacao de registros de auditoria.
+ * Alinhado com a tabela T_GS_AUDITORIA do SQL Oracle.
+ */
 public record AuditoriaDTO(
-    @NotNull(message = "ID do operador é obrigatório")
     Long operadorId,
-    
-    @NotBlank(message = "Tipo de ação é obrigatório")
+
+    LocalDateTime dataAcao,
+
+    @NotBlank(message = "Tipo de acao e obrigatorio")
     String tipoAcao,
-    
-    String detalhes,
-    
-    String nomeUsuario
+
+    String detalhes
 ) {}

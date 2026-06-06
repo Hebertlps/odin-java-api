@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDateTime;
 
 @Service
 public class AuditoriaService {
@@ -24,7 +25,7 @@ public class AuditoriaService {
 
     public Auditoria findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Auditoria não encontrada"));
+                .orElseThrow(() -> new RuntimeException("Auditoria nao encontrada com ID: " + id));
     }
 
     @Transactional
@@ -48,9 +49,11 @@ public class AuditoriaService {
     }
 
     private void updateEntityFromDto(Auditoria auditoria, AuditoriaDTO dto) {
-        auditoria.setOperador(operadorService.findById(dto.operadorId()));
-        auditoria.setTipoOperacao(dto.tipoAcao());
+        if (dto.operadorId() != null) {
+            auditoria.setOperador(operadorService.findById(dto.operadorId()));
+        }
+        auditoria.setDataAcao(dto.dataAcao() != null ? dto.dataAcao() : LocalDateTime.now());
+        auditoria.setTipoAcao(dto.tipoAcao());
         auditoria.setDetalhes(dto.detalhes());
-        auditoria.setNomeUsuario(dto.nomeUsuario() != null ? dto.nomeUsuario() : "SISTEMA");
     }
 }

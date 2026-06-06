@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDateTime;
 
 @Service
 public class ManobraService {
@@ -27,7 +28,7 @@ public class ManobraService {
 
     public Manobra findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Manobra não encontrada"));
+                .orElseThrow(() -> new RuntimeException("Manobra nao encontrada com ID: " + id));
     }
 
     @Transactional
@@ -53,6 +54,7 @@ public class ManobraService {
     private void updateEntityFromDto(Manobra manobra, ManobraDTO dto) {
         manobra.setSatelite(sateliteService.findById(dto.sateliteId()));
         manobra.setOperador(operadorService.findById(dto.operadorId()));
+        manobra.setDataManobra(dto.dataManobra() != null ? dto.dataManobra() : LocalDateTime.now());
         manobra.setTipoManobra(dto.tipoManobra());
         manobra.setCombustivelConsumido(dto.combustivelConsumido());
         manobra.setResultado(dto.resultado());

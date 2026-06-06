@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * Entidade que representa uma manobra realizada em um satélite.
- * Utiliza chave composta (@EmbeddedId) para identificação única.
+ * Entidade que representa uma manobra evasiva realizada em um satélite.
+ * Mapeada para a tabela T_GS_MANOBRAS conforme SQL Oracle.
  */
 @Entity
 @Table(name = "T_GS_MANOBRAS")
@@ -18,16 +18,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Manobra {
 
-    @EmbeddedId
-    private ManobraId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_MANOBRA")
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ID_SATELITE", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "ID_SATELITE", nullable = false)
     private Satelite satelite;
 
     @ManyToOne
-    @JoinColumn(name = "ID_OPERADOR", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "ID_OPERADOR", nullable = false)
     private Operador operador;
+
+    @Column(name = "DT_MANOBRA", nullable = false)
+    private LocalDateTime dataManobra = LocalDateTime.now();
 
     @Column(name = "TP_MANOBRA", nullable = false, length = 50)
     private String tipoManobra;
