@@ -13,6 +13,15 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+        connection:
+          provider_disables_autocommit: true
+    show-sql: false
+  datasource:
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 1
+      minimum-idle: 0
+      auto-commit: false
   servlet:
     multipart:
       max-file-size: 10MB
