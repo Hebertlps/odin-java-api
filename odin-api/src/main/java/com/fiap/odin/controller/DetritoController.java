@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/detritos")
+@RequestMapping(value = "/api/detritos", name = "detritos")
 @Tag(name = "Detritos", description = "Catálogo de lixo espacial rastreado")
 @CrossOrigin(origins = "*")
 public class DetritoController {

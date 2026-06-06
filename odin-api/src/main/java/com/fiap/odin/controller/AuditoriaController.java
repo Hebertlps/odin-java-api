@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auditorias")
+@RequestMapping(value = "/api/auditorias", name = "auditorias")
 @Tag(name = "Auditoria", description = "Rastreio de acessos e ações críticas")
 @CrossOrigin(origins = "*")
 public class AuditoriaController {

@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/satelites")
+@RequestMapping(value = "/api/satelites", name = "satelites")
 @Tag(name = "Satélites", description = "Gerenciamento da frota orbital")
 @CrossOrigin(origins = "*")
 public class SateliteController {

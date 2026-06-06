@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/operadores")
+@RequestMapping(value = "/api/operadores", name = "operadores")
 @Tag(name = "Operadores", description = "Gerenciamento de engenheiros autorizados")
 @CrossOrigin(origins = "*")
 public class OperadorController {
