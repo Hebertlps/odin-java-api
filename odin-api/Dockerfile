@@ -1,5 +1,6 @@
 FROM gradle:7.6-jdk17 AS builder
 WORKDIR /app
+# Copy only the odin-api directory contents
 COPY . .
 RUN gradle clean build -x test
 
