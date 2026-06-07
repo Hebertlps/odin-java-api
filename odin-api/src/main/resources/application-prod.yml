@@ -2,27 +2,25 @@ spring:
   application:
     name: odin-api
   datasource:
-    url: jdbc:h2:mem:odin;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:oracle:thin:@${DB_HOST:oracle.fiap.com.br}:${DB_PORT:1521}:${DB_SID:ORCL}
+    username: ${DB_USER:rm562380}
+    password: ${DB_PASS:040207}
+    driver-class-name: oracle.jdbc.OracleDriver
     hikari:
-      connection-timeout: 5000
+      connection-timeout: 30000
       maximum-pool-size: 5
       minimum-idle: 1
       auto-commit: true
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
         use_sql_comments: true
-        dialect: org.hibernate.dialect.H2Dialect
-    show-sql: false
-  h2:
-    console:
-      enabled: false
+        dialect: org.hibernate.dialect.OracleDialect
+    show-sql: true
+    open-in-view: false
   servlet:
     multipart:
       max-file-size: 10MB
@@ -34,15 +32,14 @@ server:
     context-path: /
 
 springdoc:
+  api-docs:
+    path: /api-docs
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
     operations-sorter: method
     tags-sorter: alpha
     use-root-path: true
-  api-docs:
-    enabled: true
-    path: /api-docs
   show-actuator: true
   default-flat-param-object: true
   model-and-view-allowed: true
@@ -63,3 +60,5 @@ logging:
     com.fiap.odin: DEBUG
     org.springframework.web: INFO
     org.hibernate: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
