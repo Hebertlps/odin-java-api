@@ -39,7 +39,7 @@ Fornecer uma plataforma robusta e escalável para gerenciamento de satélites, o
 
 ### 📹 Vídeos de Apresentação
 
-- **Vídeo de Apresentação (10 min):** [Link será fornecido após gravação]
+- **Vídeo de Apresentação:JAVA https://youtu.be/OBttmd580A8
 - **Vídeo Pitch (3 min):** [Link será fornecido após gravação]
 
 ### 📚 Repositório
